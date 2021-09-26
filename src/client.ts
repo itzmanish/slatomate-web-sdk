@@ -11,7 +11,6 @@ type Headers = {
     [key: string]: string;
 }
 
-
 class Client {
     API_ENDPOINT: string
     AUTH_TOKEN: string
