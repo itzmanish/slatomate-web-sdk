@@ -1,17 +1,8 @@
+import { CallOptions } from "./types/clients"
+
 const API_ENDPOINT = process.env.API_URL || "http://localhost:8000"
 
-type CallOptions = {
-    url: string
-    method: string
-    headers?: Headers
-    body?: string
-}
-
-type Headers = {
-    [key: string]: string;
-}
-
-class Client {
+class SlatomateClient {
     API_ENDPOINT: string
     AUTH_TOKEN: string
     constructor(base_url?: string) {
@@ -46,4 +37,4 @@ class Client {
 
 }
 
-export { Client }
+export { SlatomateClient }
