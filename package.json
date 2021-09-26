@@ -1,5 +1,5 @@
 {
-  "name": "slatomate-client",
+  "name": "slatomate-web-sdk",
   "version": "1.0.0",
   "description": "A web sdk for slatomate",
   "main": "./lib/cjs/index.js",
