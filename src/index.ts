@@ -1,2 +1,2 @@
 export * from './client'
-export * from './hooks/clientProvider'
+export * from './react'
