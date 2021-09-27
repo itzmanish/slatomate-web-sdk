@@ -4,7 +4,7 @@ import { SlatomateClient } from '../client'
 const SlatomateClientContext = React.createContext<SlatomateClient | null>(null)
 
 const SlatomateClientProvider: React.FC<{ client: SlatomateClient }> = ({ children, client }) => {
-    const [context, setContext] = React.useState<SlatomateClient>(client);
+    const [context, setContext] = React.useState<SlatomateClient | null>(client);
 
     React.useEffect(() => {
         setContext(client);
@@ -19,4 +19,4 @@ const SlatomateClientProvider: React.FC<{ client: SlatomateClient }> = ({ childr
 
 const useSlatomateClient = () => React.useContext(SlatomateClientContext)
 
-export { SlatomateClientProvider, useSlatomateClient }
+export { SlatomateClientProvider, useSlatomateClient, SlatomateClientContext }
