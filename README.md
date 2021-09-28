@@ -1,1 +1,1 @@
-# A web sdk for slatomte
+# A web sdk for slatomate
