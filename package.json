@@ -2,16 +2,16 @@
   "name": "slatomate-web-sdk",
   "version": "1.0.0",
   "description": "A web sdk for slatomate",
-  "main": "./lib/cjs/index.js",
-  "module": "./lib/esm/index.js",
-  "types": "./lib/esm/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
-    "/lib"
+    "/dist"
   ],
   "scripts": {
-    "build": "yarn build:esm && yarn build:cjs",
+    "build": "npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outDir lib/cjs"
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs"
   },
   "author": "Manish <itzmanish@outlook.com>",
   "license": "ISC",
@@ -19,15 +19,19 @@
     "@types/node": "^16.10.1",
     "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "typescript": "^4.4.3"
-  },
-  "peerDependencies": {
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "typescript": "^4.4.3"
   },
   "dependencies": {
     "ts-invariant": "^0.9.3"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
   }
 }

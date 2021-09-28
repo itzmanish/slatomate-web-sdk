@@ -1,7 +1,5 @@
-import { invariant } from 'ts-invariant';
-
 import * as React from 'react';
-
+import { invariant } from 'ts-invariant';
 import { SlatomateClient } from '../../client';
 import { getSlatomateContext } from '../context';
 
