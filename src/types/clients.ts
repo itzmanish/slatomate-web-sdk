@@ -1,6 +1,8 @@
+import { Method } from "axios"
+
 export type CallOptions = {
     url: string
-    method: string
+    method: Method
     headers?: Headers
     body?: string
 }

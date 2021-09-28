@@ -1,3 +1,4 @@
+import Axios, { AxiosInstance } from 'axios'
 import { CallOptions } from "./types/clients"
 
 const API_ENDPOINT = process.env.API_URL || "http://localhost:8000"
@@ -5,9 +6,11 @@ const API_ENDPOINT = process.env.API_URL || "http://localhost:8000"
 class SlatomateClient {
     API_ENDPOINT: string
     AUTH_TOKEN: string
+    axios: AxiosInstance
     constructor(base_url?: string) {
         this.API_ENDPOINT = base_url || API_ENDPOINT
         this.AUTH_TOKEN = ""
+        this.axios = Axios.create({ baseURL: base_url })
     }
 
     set auth_token(token: string) {
@@ -15,23 +18,21 @@ class SlatomateClient {
     }
 
     call = (opts: CallOptions) => {
-        return fetch(opts.url, {
+        return this.axios.request({
             method: opts.method,
-            headers: new Headers({
-                ...opts.headers
-            }),
-            body: opts.body
+            headers: opts.headers,
+            data: opts.body
         })
     }
 
     callWithAuth = (opts: CallOptions) => {
-        return fetch(opts.url, {
+        return this.axios.request({
             method: opts.method,
-            headers: new Headers({
+            headers: {
                 'Authorization': 'APIKEY ' + this.AUTH_TOKEN,
                 ...opts.headers
-            }),
-            body: opts.body
+            },
+            data: opts.body
         });
     }
 
